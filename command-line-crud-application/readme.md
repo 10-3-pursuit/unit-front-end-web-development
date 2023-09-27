@@ -414,8 +414,15 @@ Update the `update` case in `index.js`
 The score will be the sum of the animal points. Update the `score` case in `index.js`
 
 ```js
+// Animals controller
+function score(animals) {
+  return animals.reduce((acc, current) => acc + current.points, 0);
+}
+```
+
+```js
+// index.js
  case "score":
- const score = animals.reduce((acc, current) => acc + current.points, 0);
  inform("Current score", score);
  break;
 ```
