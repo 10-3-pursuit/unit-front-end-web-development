@@ -276,7 +276,7 @@ Update the `create` case.
  break;
 ```
 
-Write some logic on whether or not to write to the file after the switch statement.
+You will notice that we changed or `toggled` the `writeToFile` variable to true. We now need write some logic to check that variable and if the variable is true, we update the `animals.json` file with the new animal.
 
 ```js
 if (writeToFile) {
