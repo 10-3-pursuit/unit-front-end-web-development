@@ -17,7 +17,9 @@ By the end of this lesson
 
 With coding, there is always a temptation to jump into coding and solve whatever comes along. However, it's essential to take a few steps back. When you code without a plan, you can create features that no one asked for, make your code too complex, wholly misunderstand what you are building, or try to build something impossible within the time and technology constraints.
 
-Building an app that lets users look for animals in NYC can conjure a lot of cool features. The list uses a particular pattern that usually starts with `A user can` - writing out features this way can be helpful because a non-technical person can understand what the feature should do and a technical person can understand what functionality they need to build.
+Building an app that lets users look for animals in NYC can conjure a lot of cool features. User Stories will help define which features are worth building. A user story is an informal, general explanation of a software feature written from the perspective of the end user. Its purpose is to articulate how a software feature will provide value to the customer. The list below uses a particular pattern that usually starts with the words `A user can`. Writing out features this way can be helpful because a non-technical person can understand what the feature should do and a technical person can understand what functionality they need to build.
+
+**User Story List**
 
 - A user can add a map location where the animal was seen.
 - A user can see a list of animals.
@@ -87,26 +89,26 @@ function run() {
   const action = process.argv[2];
   const animal = process.argv[3];
   switch (action) {
-    case "index":
+    case 'index':
       inform(action);
       break;
-    case "create":
+    case 'create':
       inform(action, animal);
       break;
-    case "show":
+    case 'show':
       inform(action, animal);
       break;
-    case "update":
+    case 'update':
       inform(action, animal);
       break;
-    case "destroy":
+    case 'destroy':
       inform(action, animal);
       break;
-    case "score":
+    case 'score':
       inform(action);
       break;
     default:
-      inform("There was an error.");
+      inform('There was an error.');
   }
 }
 run();
@@ -132,21 +134,21 @@ npm run oops
 In the `helpers.js` file, create the same functionality from the previous lesson:
 
 ```js
-const { readFileSync, writeFileSync } = require("node:fs");
+const { readFileSync, writeFileSync } = require('node:fs');
 
 function readJSONFile(path, fileName) {
-  const collection = readFileSync(`${path}/${fileName}`, "utf8");
+  const collection = readFileSync(`${path}/${fileName}`, 'utf8');
   return collection ? JSON.parse(collection) : [];
 }
 
 function writeJSONFile(path, fileName, data) {
   data = JSON.stringify(data);
-  return writeFileSync(`${path}/${fileName}`, data, { encoding: "utf-8" });
+  return writeFileSync(`${path}/${fileName}`, data, { encoding: 'utf-8' });
 }
 
 module.exports = {
   readJSONFile,
-  writeJSONFile,
+  writeJSONFile
 };
 ```
 
@@ -189,7 +191,7 @@ Require it and use it in the create function.
 
 ```js
 // animalController.js
-const { nanoid } = require("nanoid");
+const { nanoid } = require('nanoid');
 
 function create(animals, animalName) {
   const animal = { name: animalName, id: nanoid(4) };
@@ -238,7 +240,7 @@ function create(animals, animalName) {
   const animal = {
     name: animalName,
     id: nanoid(4),
-    points: animalPoints[animalName],
+    points: animalPoints[animalName]
   };
   animals.push(animal);
   return animals;
@@ -270,7 +272,7 @@ Write some logic on whether or not to write to the file after the switch stateme
 
 ```js
 if (writeToFile) {
-  writeJSONFile("./data", "animals.json", updatedAnimals);
+  writeJSONFile('./data', 'animals.json', updatedAnimals);
 }
 ```
 
@@ -292,7 +294,7 @@ Finish building out the index view.
 // animalsController.js
 
 function index(animals) {
-  return animals.map((animal) => animal.id + " " + animal.name).join("\n");
+  return animals.map((animal) => animal.id + ' ' + animal.name).join('\n');
 }
 ```
 
@@ -321,7 +323,7 @@ First, take the entire array of animal objects. Then find the object that has a 
 // animalController.js
 function show(animals, animalId) {
   const animal = animals.find((animal) => animal.id === animalId);
-  return animal.id + " " + animal.name + " " + animal.points + " points";
+  return animal.id + ' ' + animal.name + ' ' + animal.points + ' points';
 }
 ```
 
@@ -343,10 +345,10 @@ function destroy(animals, animalId) {
   const index = animals.findIndex((animal) => animal.id === animalId);
   if (index > -1) {
     animals.splice(index, 1);
-    inform("Animal successfully removed from collection");
+    inform('Animal successfully removed from collection');
     return animals;
   } else {
-    inform("Animal not found. No action taken");
+    inform('Animal not found. No action taken');
     return animals;
   }
 }
@@ -379,10 +381,10 @@ function edit(animals, animalId, updatedAnimal) {
     animals[index].id = animalId;
     animals[index].name = updatedAnimal;
     animals[index].points = animalPoints[updatedAnimal];
-    inform("Animal successfully updated");
+    inform('Animal successfully updated');
     return animals;
   } else {
-    inform("Animal not found. No action taken");
+    inform('Animal not found. No action taken');
     return animals;
   }
 }
@@ -419,53 +421,53 @@ You have now built a complete CRUD app. No matter how many features you build, a
 ### index.js
 
 ```js
-const { writeJSONFile, readJSONFile } = require("./src/helpers");
+const { writeJSONFile, readJSONFile } = require('./src/helpers');
 const {
   create,
   destroy,
   edit,
   index,
-  show,
-} = require("./src/animalController.js");
+  show
+} = require('./src/animalController.js');
 
 const inform = console.log;
 
 function run() {
   const action = process.argv[2];
   const animal = process.argv[3];
-  let animals = readJSONFile("data", "animals.json");
+  let animals = readJSONFile('data', 'animals.json');
   let writeToFile = false;
   let updatedAnimals = [];
   switch (action) {
-    case "index":
+    case 'index':
       const animalsView = index(animals);
       inform(animalsView);
       break;
-    case "create":
+    case 'create':
       updatedAnimals = create(animals, animal);
       writeToFile = true;
       break;
-    case "show":
+    case 'show':
       const animalView = show(animals, animal);
       inform(animalView);
       break;
-    case "update":
+    case 'update':
       updatedAnimals = edit(animals, animal, process.argv[4]);
       writeToFile = true;
       break;
-    case "destroy":
+    case 'destroy':
       updatedAnimals = destroy(animals, animal);
       writeToFile = true;
       break;
-    case "score":
+    case 'score':
       const score = animals.reduce((acc, curr) => acc + curr.points, 0);
-      inform("Current score", score);
+      inform('Current score', score);
       break;
     default:
-      inform("There was an error.");
+      inform('There was an error.');
   }
   if (writeToFile) {
-    writeJSONFile("data", "animals.json", updatedAnimals);
+    writeJSONFile('data', 'animals.json', updatedAnimals);
   }
 }
 run();
@@ -474,36 +476,36 @@ run();
 ### animalController.js
 
 ```js
-const { nanoid } = require("nanoid");
-const animalPoints = require("./animalPoints.json");
+const { nanoid } = require('nanoid');
+const animalPoints = require('./animalPoints.json');
 
 const inform = console.log;
 function create(animals, animalName) {
   const animal = {
     name: animalName,
     id: nanoid(4),
-    points: animalPoints[animalName],
+    points: animalPoints[animalName]
   };
   animals.push(animal);
   return animals;
 }
 
 function index(animals) {
-  return animals.map((animal) => animal.id + " " + animal.name).join("\n");
+  return animals.map((animal) => animal.id + ' ' + animal.name).join('\n');
 }
 
 function show(animals, animalId) {
   const animal = animals.find((animal) => animal.id === animalId);
-  return animal.id + " " + animal.name + " " + animal.points + " points";
+  return animal.id + ' ' + animal.name + ' ' + animal.points + ' points';
 }
 function destroy(animals, animalId) {
   const index = animals.findIndex((animal) => animal.id === animalId);
   if (index > -1) {
     animals.splice(index, 1);
-    inform("Animal successfully removed from collection");
+    inform('Animal successfully removed from collection');
     return animals;
   } else {
-    inform("Animal not found. No action taken");
+    inform('Animal not found. No action taken');
     return animals;
   }
 }
@@ -514,10 +516,10 @@ function edit(animals, animalId, updatedAnimal) {
     animals[index].id = animalId;
     animals[index].name = updatedAnimal;
     animals[index].points = animalPoints[updatedAnimal];
-    inform("Animal successfully updated");
+    inform('Animal successfully updated');
     return animals;
   } else {
-    inform("Animal not found. No action taken");
+    inform('Animal not found. No action taken');
     return animals;
   }
 }
