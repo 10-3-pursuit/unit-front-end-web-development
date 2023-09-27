@@ -248,7 +248,7 @@ function create(animals, animalName) {
   const animal = {
     name: animalName,
     id: nanoid(4),
-    points: animalPoints[animalName]
+    points: animalPoints[animalName] | 10 // if the animal you create does not exist in the resource object of animals, it will be given a default points value of 10
   };
   animals.push(animal);
   return animals;
