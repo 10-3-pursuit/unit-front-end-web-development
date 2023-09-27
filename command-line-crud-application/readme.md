@@ -134,6 +134,8 @@ npm run oops
 
 Add an empty array in the `animals.json` file
 
+Eventually, when you create an animal, it will be stored in this file.
+
 In the `helpers.js` file, create the same functionality from the previous lesson:
 
 ```js
