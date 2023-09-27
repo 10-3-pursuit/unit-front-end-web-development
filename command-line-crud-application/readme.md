@@ -131,6 +131,8 @@ npm run oops
 - `mkdir data`
 - `touch data/animals.json`
 
+Add an empty array in the `animals.json` file
+
 In the `helpers.js` file, create the same functionality from the previous lesson:
 
 ```js
