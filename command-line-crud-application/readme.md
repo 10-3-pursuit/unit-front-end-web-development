@@ -423,7 +423,7 @@ function score(animals) {
 ```js
 // index.js
  case "score":
- inform("Current score:", score(animals));
+ inform(`Current points sum of all animals you've added to your database:`, score(animals));
  break;
 ```
 
