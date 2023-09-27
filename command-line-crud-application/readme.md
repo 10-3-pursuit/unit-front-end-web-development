@@ -174,7 +174,7 @@ For now, when you run `npm run index` you should see an empty array since `anima
 
 ### Create
 
-The user will run the command `npm run create bat` to create a new animal. A new animal should be a new entry into the user's data. Each animal should have a unique id, a name, and the points associated with it. Then the animal should be added to the end of the animals array.
+The user will run the command `npm run create <name of animal>` to create a new animal. A new animal should be a new entry into the user's data. Each animal should have a unique id, a name, and the points associated with it. Then the animal should be added to the end of the animals array.
 
 This functionality controls what happens to the data. Therefore it is a separate concern from the other functionality you've built. Make a new file called `animalController.js` in the `src` folder
 
