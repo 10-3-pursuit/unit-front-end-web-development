@@ -170,7 +170,7 @@ const animals = readJSONFile("./data", "animals.json");
  inform(action, animals);
 ```
 
-For now, when you run `npm run index` you should see an empty array since `animals.json` only has an empty array at the moment.
+For now, when you run `npm run index` you should see an empty array since `animals.json` only holds an empty array at the moment.
 
 ### Create
 
