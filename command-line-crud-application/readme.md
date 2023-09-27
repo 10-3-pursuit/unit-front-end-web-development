@@ -51,14 +51,14 @@ You can either read or code along.
 - `touch src/helpers.js`
 - `npm init -y`
 
-Based on the user stories above, create scripts that would run the following (`Rsl_` represents a unique id for an example animal):
+Based on the user stories above, create scripts that would run the following (`<animal_id>` represents the unique id that was created by `nanoid` for an example animal) You will be able to see them, later, in your `animals.json` file:
 
 ```
 npm run index
 npm run create bat
-npm run show Rsl_
-npm run update Rsl_ "red fox"
-npm run destroy Rsl_
+npm run show <animal_id>
+npm run update <animal_id> "red fox"
+npm run destroy <animal_id>
 npm run score
 ```
 
@@ -111,6 +111,7 @@ function run() {
       inform('There was an error.');
   }
 }
+
 run();
 ```
 
