@@ -134,7 +134,7 @@ npm run oops
 In the `helpers.js` file, create the same functionality from the previous lesson:
 
 ```js
-const { readFileSync, writeFileSync } = require('node:fs');
+const { readFileSync, writeFileSync } = require('fs');
 
 function readJSONFile(path, fileName) {
   const collection = readFileSync(`${path}/${fileName}`, 'utf8');
@@ -157,9 +157,12 @@ Import these functions to `index.js`.
 In the `index.js` file's run function, get the data from the `animals.json` file and update the index case to log the file contents:
 
 ```js
-let animals = readJSONFile("./data", "animals.json");
+const {readJSONFile, writeJSONFile} = require('./src/helpers'
+``
+const animals = readJSONFile("./data", "animals.json");
 
 //Further down
+// add an `animals` parameter to the "index" case "inform" function call
 
  case "index":
  inform(action, animals);
