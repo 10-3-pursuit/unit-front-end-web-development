@@ -17,7 +17,7 @@ By the end of this lesson
 
 With coding, there is always a temptation to jump into coding and solve whatever comes along. However, it's essential to take a few steps back. When you code without a plan, you can create features that no one asked for, make your code too complex, wholly misunderstand what you are building, or try to build something impossible within the time and technology constraints.
 
-Building an app that lets users look for animals in NYC can conjure a lot of cool features. User Stories will help define which features are worth building. A user story is an informal, general explanation of a software feature written from the perspective of the end user. Its purpose is to articulate how a software feature will provide value to the customer. The list below uses a particular pattern that usually starts with the words `A user can`. Writing out features this way can be helpful because a non-technical person can understand what the feature should do and a technical person can understand what functionality they need to build.
+Building an app that lets users look for animals in NYC can conjure a lot of cool features. User Stories will help define which features are worth building. A user story is an informal, general explanation of a software feature written from the perspective of the end user. Its purpose is to articulate how a software feature will provide value to the customer. The list below uses a particular pattern that usually starts with the words "A user can...". Writing out features this way can be helpful because a non-technical person can understand what the feature should do and a technical person can understand what functionality they need to build.
 
 **User Story List**
 
