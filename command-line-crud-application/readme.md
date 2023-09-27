@@ -423,7 +423,7 @@ function score(animals) {
 ```js
 // index.js
  case "score":
- inform("Current score", score);
+ inform("Current score:", score(animals));
  break;
 ```
 
