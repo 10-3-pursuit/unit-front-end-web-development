@@ -120,9 +120,9 @@ Test each script to be sure things work as expected:
 ```
 npm run index
 npm run create bat
-npm run show Rsl_
-npm run update Rsl_ "red fox"
-npm run destroy Rsl_
+npm run show <make up a fake id>
+npm run update <make up a fake id> "red fox"
+npm run destroy <make up a fake id>
 npm run score
 npm run oops
 ```
