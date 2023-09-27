@@ -46,7 +46,7 @@ You can either read or code along.
 - `mkdir fauna-go`
 - `cd fauna-go`
 - `touch .gitignore` (and add appropriate files and folders)
-- `touch index.js
+- `touch index.js`
 - `mkdir src`
 - `touch src/helpers.js`
 - `npm init -y`
