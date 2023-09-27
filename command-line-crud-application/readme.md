@@ -319,10 +319,10 @@ Update the `index` case in `index.js`:
 
 ### Show
 
-Thinking about an online store, you also want to see a detailed view of an item. In this case, the user would pass the id to see a detailed view. The sample id shown is `Rsl_`.
+Thinking about an online store, you also want to see a detailed view of an item. In this case, the user would pass the id to see a detailed view. The sample id shown is `<animal_id>`.
 
 ```
-npm run show Rsl_
+npm run show <animal_id>
 ```
 
 First, take the entire array of animal objects. Then find the object that has a matching id. Then send back a human-readable view:
@@ -342,7 +342,7 @@ Destroying an animal object will also require the animal id.
 > **Note**: `delete` is a keyword in JavaScript. You cannot name a function of this word. Therefore, the alternative word `destroy` will be used.
 
 ```
-npm run destroy Rsl_
+npm run destroy <animal_id>
 ```
 
 ```js
@@ -378,7 +378,7 @@ Update the `destroy` case in `index.js`
 You'll use the `id` for this action as well. Additionally, you'll need to enter the new animal name.
 
 ```
-npm run update Rsl_ "red fox"
+npm run update <animal_id> "red fox"
 ```
 
 ```js
