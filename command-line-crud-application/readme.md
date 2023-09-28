@@ -84,8 +84,8 @@ In the `index.js` file, create a `run` function that will handle your actions (i
 Additionally, `console.log` will serve two purposes, to `inform` your user about something or for you (the developer) to debug. To help clarify which console log does what, you can give `console.log` an alias called `inform`. You will use call this variable holding the console.log function in your actions. This will allow the user to see information in the terminal.
 
 ```js
-// give console.log an alias
-// When providing user feedback use `inform`
+// create an alias called inform to store the console.log function
+// When providing user feedback in the terminal use `inform`
 // When developing/debugging use `console.log`
 const inform = console.log;
 
