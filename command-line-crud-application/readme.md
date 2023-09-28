@@ -224,9 +224,11 @@ function create(animals, animalName) {
 
 We are going to create a separate resource in our `data` folder called `animalPoints.json`. This file will allow us to grab points for animals that are already stored in our application, but not in our `animals.json`. When we `create` an animal for our `animals.json` file, our application will search the `animalPoints.json` to see if the animal exists in your 'database' so to speak. If it does, it will then create an object holding the points for this animal, along with the name of the animal and the generated id. If the animal the user cretes does not exist, you will default the animal to have 10 points. When the `create` action is called, the information will be stored in your `animals.json` file.
 
-[Resource](https://www.nycgovparks.org/programs/wildlife-management/calendar):
 
-A JSON file can also hold a single object. Not only an array. Add this object to your `animalPoints.json` file.
+
+__Note:__ A JSON file can also hold a single object. Not only an array. 
+
+Add the object below to your `animalPoints.json` file.
 
 ```json
 {
