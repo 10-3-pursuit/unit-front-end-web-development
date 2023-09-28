@@ -63,7 +63,7 @@ Code along and get your hands dirty.
 - `npm init -y`
 
 
-`package.json`:
+Replace the scripts object in `package.json` with this code:
 
 ```json
  "scripts":{
