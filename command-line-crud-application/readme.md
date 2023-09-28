@@ -130,16 +130,18 @@ npm run score
 npm run oops
 ```
 
-### Index
+### Data
+
+This `animals.json` file in the `data` directory will store any animals that you create. As if you were storing animals in a database:
 
 - `mkdir data`
 - `touch data/animals.json`
 
 Add an empty array in the `animals.json` file
 
-Eventually, when you create an animal, it will be stored in this file.
+## Helpers
 
-In the `helpers.js` file, create the same functionality from the previous lesson:
+In the `helpers.js` file, create the functionality that will allow node to read from and write information to your file using the `fs` or `file system` package that is automatically included with NodeJS:
 
 ```js
 const { readFileSync, writeFileSync } = require('fs');
@@ -159,6 +161,8 @@ module.exports = {
   writeJSONFile
 };
 ```
+
+### Index
 
 Import these functions to `index.js`.
 
