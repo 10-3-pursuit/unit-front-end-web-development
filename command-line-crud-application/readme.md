@@ -141,7 +141,7 @@ Add an empty array in the `animals.json` file
 
 ## Helpers
 
-In the `helpers.js` file, create the functionality that will allow node to read from and write information to your file using the `fs` or `file system` package that is automatically included with NodeJS:
+In the `helpers.js` file, create the functionality that will allow the application to read from and write information to your file using the `fs` or `file system` package that is automatically included with NodeJS:
 
 ```js
 const { readFileSync, writeFileSync } = require('fs');
