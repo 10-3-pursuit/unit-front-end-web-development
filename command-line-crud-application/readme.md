@@ -342,13 +342,14 @@ In the `index.js` file, update the `index` case.:
 
 ### Show
 
-Thinking about an online store, you also want to see a detailed view of an item. In this case, the user would pass the id to see a detailed view. The sample id shown is `<animal_id>`.
+Thinking about an online store, you also want to see a detailed view of an item. In this case, the user would pass the id to see a detailed view. The sample id shown is the generated `<animal_id>`. The user will eventually type the command below where the id is the id that is stored for a particular animal in the `animals.json` file.
+
 
 ```
 npm run show <animal_id>
 ```
 
-First, take the entire array of animal objects. Then find the object that has a matching id. Then send back a human-readable view:
+`show` function/action will search the array of animals and find the object that has a matching id to the `animalID` parameter. It will then send back a human-readable view:
 
 ```js
 // animalController.js
