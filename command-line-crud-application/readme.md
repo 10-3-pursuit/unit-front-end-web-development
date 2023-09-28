@@ -81,7 +81,7 @@ Replace the `"scripts"` object in `package.json` with this code:
 
 In the `index.js` file, create a `run` function that will handle your actions (index, create, show, update, destroy, score).
 
-Additionally, `console.log` will serve two purposes, to `inform` your user about something or for you (the developer) to debug. To help clarify which console log does what, you can give `console.log` an alias:
+Additionally, `console.log` will serve two purposes, to `inform` your user about something or for you (the developer) to debug. To help clarify which console log does what, you can give `console.log` an alias called `inform`. You will use this function in your actions to see information in the terminal.
 
 ```js
 // give console.log an alias
