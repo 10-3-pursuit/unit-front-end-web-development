@@ -295,7 +295,13 @@ function create(animals, animalName) {
 
 ## save the added animal to the `animals.json` file.
 
-In your `index.js` file, start by adding two variables to the top of the `run` function. One variable will hold a boolean value that acts as a toggle. The other variable will hold an array of the updated or created animals
+In your `index.js` file, start by importing the `create` function. 
+
+```js
+const {create} = require('./src/animalController')
+```
+
+Next add two variables to the top of the `run` function. One variable, `writToFile`, will hold a boolean value that acts as a toggle. The other variable,`updateAnimals`, will hold an array of the updated or created animals
 
 ```js
 // index.js
