@@ -63,6 +63,7 @@ Code along and get your hands dirty.
 - `mkdir src`
 - `touch src/helpers.js`
 - `npm init -y`
+- `npm install nanoid@3`
 
 
 Replace the scripts object in `package.json` with this code:
@@ -182,11 +183,18 @@ const animals = readJSONFile("./data", "animals.json");
 
 For now, when you run `npm run index` you should see an empty array since `animals.json` only holds an empty array at the moment.
 
+### Controller Directory
+
+In our `index.js` file. We want to be able to call all of the actions such as show, create, destroy etc. But the `single concern` of this file is to create and run the `run` function for the application. We need a file that will handle the business of creating all of our action functions. This is where our `controller` directory and file will come into play. We name our controller file something that refers to the subject it will be handling.
+
+In the `src` folder, make a new file called `animalController.js`
+
+
 ### Create
 
-The user will run the command `npm run create <name of animal>` to create a new animal. A new animal should be a new entry into the user's data. Each animal should have a unique id, a name, and the points associated with it. Then the animal should be added to the end of the animals array.
+The user will run the command `npm run create <name of animal>` to create a new animal. A new animal should be a new entry into the user's data that will be stored in the `animals.json` file. Each animal should have a unique id, a name, and the points associated with it. Then the animal should be added to the end of the animals array.
 
-This functionality controls what happens to the data. Therefore it is a separate concern from the other functionality you've built. Make a new file called `animalController.js` in the `src` folder
+This functionality controls what happens to the data. Therefore it is a separate concern from the other functionality you've built. That is why we will store this in the `animalController.js` file.
 
 ```js
 function create(animals, animalName) {
@@ -196,11 +204,7 @@ function create(animals, animalName) {
 }
 ```
 
-To add an id, you need to add an npm package to generate a unique id. Limit the `id` to be 4 characters long, so that there is less for the user to type.
-
-```
-npm install nanoid@3
-```
+Remember that we've added an npm package to generate a unique id called `nanoid`. (check your `package.json` dependencies object)
 
 Require it and use it in the create function.
 
@@ -209,15 +213,20 @@ Require it and use it in the create function.
 const { nanoid } = require('nanoid');
 
 function create(animals, animalName) {
+  // Limit the id to be 4 characters long by placing a 4 as the argument for nanoid
   const animal = { name: animalName, id: nanoid(4) };
   animals.push(animal);
   return animals;
 }
 ```
 
-Lastly, we need to get the points. Create a new file called `animalPoints.json` and import this data into `animalController.js`
+### Resource
+
+We are going to create a separate resource in our `data` folder called `animalPoints.json`. This file will allow us to grab points for animals that are already stored in our application, but not in our `animals.json`. When we `create` an animal for our `animals.json` file, our application will search the `animalPoints.json` to see if the animal exists in your 'database' so to speak. If it does, it will then create an object holding the points for this animal, along with the name of the animal and the generated id. If the animal the user cretes does not exist, you will default the animal to have 10 points. When the `create` action is called, the information will be stored in your `animals.json` file.
 
 [Resource](https://www.nycgovparks.org/programs/wildlife-management/calendar):
+
+A JSON file can also hold a single object. Not only an array. Add this object to your `animalPoints.json` file.
 
 ```json
 {
@@ -248,7 +257,9 @@ Lastly, we need to get the points. Create a new file called `animalPoints.json` 
 }
 ```
 
-Access the points by key:
+## animalController.js update
+
+You will access the points by key or set the default:
 
 ```js
 function create(animals, animalName) {
@@ -262,9 +273,9 @@ function create(animals, animalName) {
 }
 ```
 
-Finally, save the added animal to the file.
+## save the added animal to the `animals.json` file.
 
-Start by adding two variables to the top of the `run` function.
+In your `index.js` file, start by adding two variables to the top of the `run` function. One variable will hold a boolean value that acts as a toggle. The other variable will hold an array of the updated or created animals
 
 ```js
 // index.js
@@ -273,6 +284,9 @@ let writeToFile = false;
 let updatedAnimals = [];
 // Rest of code
 ```
+
+When creating or updating, we must tell the application whether or not it should write to a file. The best way to do this is to use a boolean to only write to a file when true. We defaulted that boolean `writeToFile` earlier to false. When a create or update has happened, we need to convert that boolean to true. At the end of the function, we will write a conditional to decide whether or not the function should write to the `animals.json` file.
+
 
 Update the `create` case.
 
@@ -283,7 +297,9 @@ Update the `create` case.
  break;
 ```
 
-You will notice that we changed or `toggled` the `writeToFile` variable to true. We now need write some logic to check that variable and if the variable is true, we update the `animals.json` file with the new animal.
+You will notice that we changed or `toggled` the `writeToFile` variable to true. At the end of the function, we now need write logic to check that variable. If the variable is true, we update the `animals.json` file with the new animal.
+
+Add this block of code below the `switch` statement
 
 ```js
 if (writeToFile) {
@@ -303,7 +319,7 @@ However, look back to your initial plan. None of these features are part of the 
 
 Typically, an index is a list of things with limited details. When you think of an online store, you usually see one image, a name, and a price. Then when you click the item, you will see more details.
 
-Finish building out the index view.
+Add the index functionality to the `animalsController.js` file so that we can import it and call it as an action in the `index.js`.
 
 ```js
 // animalsController.js
@@ -315,7 +331,7 @@ function index(animals) {
 
 Be sure to export and then import the function to `index.js`
 
-Update the `index` case in `index.js`:
+In the `index.js` file, update the `index` case.:
 
 ```js
  case "index":
