@@ -41,7 +41,9 @@ Suddenly, a "simple" app has grown quite complex and would require numerous tech
 - A user can update an animal
 - A user can see their score
 
-Based on the user stories above, create scripts that would run the following (`<animal_id>` represents the unique id that was created by `nanoid` for an example animal) You will be able to see them, later, in your `animals.json` file:
+Based on the user stories above, create scripts that would run the following:
+
+__Note:__ (`<animal_id>` represents the unique id that was created by `nanoid` for an example animal) You will be able to see them, later, in your `animals.json` file:
 
 ```
 npm run index
