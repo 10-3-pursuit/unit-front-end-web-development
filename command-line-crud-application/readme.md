@@ -261,6 +261,14 @@ A JSON file can also hold a single object. Not only an array. Add this object to
 
 You will access the points by key or set the default:
 
+Import the `animalPoints` into the `animalController.js` file.
+
+```js
+const animalPoints = require('../data/animalPoints.json');
+```
+
+Add the create function to the `animalController.js` file
+
 ```js
 function create(animals, animalName) {
   const animal = {
@@ -363,11 +371,12 @@ function show(animals, animalId) {
 
 Destroying an animal object will also require the animal id.
 
-> **Note**: `delete` is a keyword in JavaScript. You cannot name a function of this word. Therefore, the alternative word `destroy` will be used.
+> **Note**: `delete` is a keyword in JavaScript. You cannot name a function using this word. Therefore, the alternative word `destroy` will be used.
 
 ```
 npm run destroy <animal_id>
 ```
+In the `animalController.js` file, place this `inform` variable which just allows us to use `console.log` as well as the `destroy` function into the file.
 
 ```js
 // animalController.js
@@ -386,9 +395,11 @@ function destroy(animals, animalId) {
 }
 ```
 
-Export and import this function to `index.js`
+Export the `destroy` funtion
 
-Update the `destroy` case in `index.js`
+
+
+In your `index.js` file, import the `destroy` function and update the `destroy` case
 
 ```js
  case "destroy":
@@ -405,6 +416,7 @@ You'll use the `id` for this action as well. Additionally, you'll need to enter 
 npm run update <animal_id> "red fox"
 ```
 
+In the `animalsController.js` add the edit function
 ```js
 // Animals Controller
 function edit(animals, animalId, updatedAnimal) {
@@ -424,7 +436,7 @@ function edit(animals, animalId, updatedAnimal) {
 
 Export and import this function to `index.js`.
 
-Update the `update` case in `index.js`
+In `index.js`, Update the `update` case
 
 ```js
  case "update":
@@ -435,7 +447,7 @@ Update the `update` case in `index.js`
 
 ### Score
 
-The score will be the sum of the animal points. Update the `score` case in `index.js`
+The score will be the sum of the animal points. Add the score function to the `animalsController.js`
 
 ```js
 // Animals controller
@@ -443,6 +455,8 @@ function score(animals) {
   return animals.reduce((acc, current) => acc + current.points, 0);
 }
 ```
+
+In the `index.js` update the `score` case
 
 ```js
 // index.js
@@ -499,8 +513,10 @@ function run() {
       writeToFile = true;
       break;
     case 'score':
-      const score = animals.reduce((acc, curr) => acc + curr.points, 0);
-      inform('Current score', score);
+      inform(
+        `Current points sum of all animals you've added to your database:`,
+        score(animals)
+      );
       break;
     default:
       inform('There was an error.');
@@ -516,7 +532,7 @@ run();
 
 ```js
 const { nanoid } = require('nanoid');
-const animalPoints = require('./animalPoints.json');
+const animalPoints = require('../data/animalPoints.json');
 
 const inform = console.log;
 function create(animals, animalName) {
@@ -563,5 +579,9 @@ function edit(animals, animalId, updatedAnimal) {
   }
 }
 
-module.exports = { create, destroy, edit, index, show };
+function score(animals) {
+  return animals.reduce((acc, current) => acc + current.points, 0);
+}
+
+module.exports = { create, destroy, edit, index, show, score };
 ```
