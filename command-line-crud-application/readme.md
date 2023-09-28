@@ -208,6 +208,10 @@ function create(animals, animalName) {
   animals.push(animal);
   return animals;
 }
+
+module.exports = {
+  create
+}
 ```
 
 Remember that we've added an npm package to generate a unique id called `nanoid`. (check your `package.json` dependencies object)
