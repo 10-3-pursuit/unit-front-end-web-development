@@ -165,18 +165,24 @@ module.exports = {
 
 ### Index
 
-Import these functions to `index.js`.
+Import the `readJSONFile` and `writeJSONFile`functions from the `helpers.js` file into `index.js`.
 
-In the `index.js` file's run function, get the data from the `animals.json` file and update the index case to log the file contents:
+In the `index.js` file's run function, import the data from the `animals.json`
+
 
 ```js
 const {readJSONFile, writeJSONFile} = require('./src/helpers'
-``
+```
+
+The `readJSONFile` will read from the object in `animals.json`
+
+```js
 const animals = readJSONFile("./data", "animals.json");
+```
 
-//Further down
-// add an `animals` parameter to the "index" case "inform" function call
+Add an `animals` parameter to the "index" case "inform" function call
 
+```js
  case "index":
  inform(action, animals);
 ```
