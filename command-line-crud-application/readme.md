@@ -118,7 +118,7 @@ function run() {
 run();
 ```
 
-Test each script to be sure things work as expected:
+Test each script to be sure things work as expected. Each response should be a console log of the information given as arguments and nothing more:
 
 ```
 npm run index
