@@ -171,7 +171,7 @@ In the `index.js` file's run function, import the data from the `animals.json`
 
 
 ```js
-const {readJSONFile, writeJSONFile} = require('./src/helpers'
+const {readJSONFile, writeJSONFile} = require('./src/helpers')
 ```
 
 The `readJSONFile` will read from the object in `animals.json`
