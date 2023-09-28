@@ -66,7 +66,7 @@ Code along and get your hands dirty.
 - `npm install nanoid@3`
 
 
-Replace the scripts object in `package.json` with this code:
+Replace the `"scripts"` object in `package.json` with this code:
 
 ```json
  "scripts":{
