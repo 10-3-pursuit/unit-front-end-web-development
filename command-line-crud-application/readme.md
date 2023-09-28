@@ -41,16 +41,6 @@ Suddenly, a "simple" app has grown quite complex and would require numerous tech
 - A user can update an animal
 - A user can see their score
 
-You can either read or code along.
-
-- `mkdir fauna-go`
-- `cd fauna-go`
-- `touch .gitignore` (and add appropriate files and folders)
-- `touch index.js`
-- `mkdir src`
-- `touch src/helpers.js`
-- `npm init -y`
-
 Based on the user stories above, create scripts that would run the following (`<animal_id>` represents the unique id that was created by `nanoid` for an example animal) You will be able to see them, later, in your `animals.json` file:
 
 ```
@@ -61,6 +51,17 @@ npm run update <animal_id> "red fox"
 npm run destroy <animal_id>
 npm run score
 ```
+
+Code along and get your hands dirty.
+
+- `mkdir fauna-go`
+- `cd fauna-go`
+- `touch .gitignore` (and add appropriate files and folders)
+- `touch index.js`
+- `mkdir src`
+- `touch src/helpers.js`
+- `npm init -y`
+
 
 `package.json`:
 
