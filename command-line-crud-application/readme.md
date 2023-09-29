@@ -459,7 +459,6 @@ In `index.js`, Update the `update` case
 The score will be the sum of the animal points. Add the score function to the `animalsController.js`
 
 ```js
-// Animals controller
 function score(animals) {
   return animals.reduce((acc, current) => acc + current.points, 0);
 }
@@ -470,7 +469,6 @@ Export the `score` function and import this function to `index.js`.
 In the `index.js` update the `score` case
 
 ```js
-// index.js
  case "score":
    inform(`Current points sum of all animals you've added to your database:`, score(animals));
    break;
