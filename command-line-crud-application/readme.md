@@ -43,7 +43,7 @@ Suddenly, a "simple" app has grown quite complex and would require numerous tech
 
 Based on the user stories above, create scripts that would run the following:
 
-__Note:__ (`<animal_id>` represents the unique id that was created by a package you will later install called `nanoid`, which creates random ids. An id will be created for each animal you later create.)
+**Note:** (`<animal_id>` represents the unique id that was created by a package you will later install called `nanoid`, which creates random ids. An id will be created for each animal you later create.)
 
 ```
 npm run index
@@ -65,17 +65,16 @@ Code along and get your hands dirty.
 - `npm init -y`
 - `npm install nanoid@3`
 
-
 Replace the `"scripts"` object in `package.json` with this code:
 
 ```json
  "scripts":{
- "index": "node index.js index",
- "create": "node index.js create",
- "show": "node index.js show",
- "update": "node index.js update",
- "destroy": "node index.js destroy",
- "score": "node index.js score"
+  "index": "node index.js index",
+  "create": "node index.js create",
+  "show": "node index.js show",
+  "update": "node index.js update",
+  "destroy": "node index.js destroy",
+  "score": "node index.js score"
 }
 ```
 
@@ -169,22 +168,21 @@ Import the `readJSONFile` and `writeJSONFile`functions from the `helpers.js` fil
 
 In the `index.js` file's run function, import the data from the `animals.json`
 
-
 ```js
-const {readJSONFile, writeJSONFile} = require('./src/helpers')
+const { readJSONFile, writeJSONFile } = require('./src/helpers');
 ```
 
 The `readJSONFile` will read from the object in `animals.json`
 
 ```js
-const animals = readJSONFile("./data", "animals.json");
+const animals = readJSONFile('./data', 'animals.json');
 ```
 
 Add an `animals` parameter to the "index" case "inform" function call
 
 ```js
  case "index":
- inform(action, animals);
+   inform(action, animals);
 ```
 
 For now, when you run `npm run index` you should see an empty array since `animals.json` only holds an empty array at the moment.
@@ -194,7 +192,6 @@ For now, when you run `npm run index` you should see an empty array since `anima
 In our `index.js` file. We want to be able to call all of the actions such as show, create, destroy etc. But the `single concern` of this file is to create and run the `run` function for the application. We need a file that will handle the business of creating all of our action functions. This is where our `controller` directory and file will come into play. We name our controller file something that refers to the subject it will be handling.
 
 In the `src` folder, make a new file called `animalController.js`
-
 
 ### Create
 
@@ -211,7 +208,7 @@ function create(animals, animalName) {
 
 module.exports = {
   create
-}
+};
 ```
 
 Remember that we've added an npm package to generate a unique id called `nanoid`. (check your `package.json` dependencies object)
@@ -234,9 +231,7 @@ function create(animals, animalName) {
 
 We are going to create a separate resource in our `data` folder called `animalPoints.json`. This file will allow us to grab points for animals that are already stored in our application, but not in our `animals.json`. When we `create` an animal for our `animals.json` file, our application will search the `animalPoints.json` to see if the animal exists in your 'database' so to speak. If it does, it will then create an object holding the points for this animal, along with the name of the animal and the generated id. If the animal the user cretes does not exist, you will default the animal to have 10 points. When the `create` action is called, the information will be stored in your `animals.json` file.
 
-
-
-__Note:__ A JSON file can also hold a single object. Not only an array. 
+**Note:** A JSON file can also hold a single object. Not only an array.
 
 Add the object below to your `animalPoints.json` file.
 
@@ -286,7 +281,7 @@ function create(animals, animalName) {
   const animal = {
     name: animalName,
     id: nanoid(4),
-    points: animalPoints[animalName] | 10 // if the animal you create does not exist in the resource object of animals, it will be given a default points value of 10
+    points: animalPoints[animalName] || 10 // if the animal you create does not exist in the resource object of animals, it will be given a default points value of 10
   };
   animals.push(animal);
   return animals;
@@ -295,10 +290,10 @@ function create(animals, animalName) {
 
 ## Save the created animal to the `animals.json` file.
 
-In your `index.js` file, start by importing the `create` function. 
+In your `index.js` file, start by importing the `create` function.
 
 ```js
-const {create} = require('./src/animalController')
+const { create } = require('./src/animalController');
 ```
 
 Next add two variables to the top of the `run` function. One variable, `writToFile`, will hold a boolean value that acts as a toggle. The other variable,`updateAnimals`, will hold an array of the updated or created animals
@@ -306,21 +301,20 @@ Next add two variables to the top of the `run` function. One variable, `writToFi
 ```js
 // index.js
 function run {
-let writeToFile = false;
-let updatedAnimals = [];
-// Rest of code
+  let writeToFile = false;
+  let updatedAnimals = [];
+  // Rest of code...
 ```
 
 When creating or updating, we must tell the application whether or not it should write to a file. The best way to do this is to use a boolean to only write to a file when true. We defaulted that boolean `writeToFile` earlier to false. When a create or update has happened, we need to convert that boolean to true. At the end of the function, we will write a conditional to decide whether or not the function should write to the `animals.json` file.
-
 
 Update the `create` case.
 
 ```js
  case "create":
- updatedAnimals = create(animals, animal);
- writeToFile = true;
- break;
+  updatedAnimals = create(animals, animal);
+  writeToFile = true;
+  break;
 ```
 
 You will notice that we changed or `toggled` the `writeToFile` variable to true. At the end of the function, we now need write logic to check that variable. If the variable is true, we update the `animals.json` file with the new animal.
@@ -361,15 +355,14 @@ In the `index.js` file, update the `index` case.:
 
 ```js
  case "index":
- const animalsView = index(animals);
- inform(animalsView);
- break;
+  const animalsView = index(animals);
+  inform(animalsView);
+  break;
 ```
 
 ### Show
 
 Thinking about an online store, you also want to see a detailed view of an item. In this case, the user would pass the id to see a detailed view. The sample id shown is the generated `<animal_id>`. The user will eventually type the command below where the id is the id that is stored for a particular animal in the `animals.json` file.
-
 
 ```
 npm run show <animal_id>
@@ -384,6 +377,7 @@ function show(animals, animalId) {
   return animal.id + ' ' + animal.name + ' ' + animal.points + ' points';
 }
 ```
+
 Export the `show` function and import this function to `index.js`.
 
 ### Destroy
@@ -395,6 +389,7 @@ Destroying an animal object will also require the animal id.
 ```
 npm run destroy <animal_id>
 ```
+
 In the `animalController.js` file, place this `inform` variable which just allows us to use `console.log` as well as the `destroy` function into the file.
 
 ```js
@@ -416,15 +411,13 @@ function destroy(animals, animalId) {
 
 Export the `destroy` function and import this function to `index.js`.
 
-
-
 In your `index.js` file, import the `destroy` function and update the `destroy` case
 
 ```js
  case "destroy":
- updatedAnimals = destroy(animals, animal);
- writeToFile = true;
- break;
+   updatedAnimals = destroy(animals, animal);
+   writeToFile = true;
+   break;
 ```
 
 ### Update
@@ -436,6 +429,7 @@ npm run update <animal_id> "red fox"
 ```
 
 In the `animalsController.js` add the edit function
+
 ```js
 // Animals Controller
 function edit(animals, animalId, updatedAnimal) {
@@ -443,7 +437,7 @@ function edit(animals, animalId, updatedAnimal) {
   if (index > -1) {
     animals[index].id = animalId;
     animals[index].name = updatedAnimal;
-    animals[index].points = animalPoints[updatedAnimal];
+    animals[index].points = animalPoints[updatedAnimal] || 10;
     inform('Animal successfully updated');
     return animals;
   } else {
@@ -459,9 +453,9 @@ In `index.js`, Update the `update` case
 
 ```js
  case "update":
- updatedAnimals = edit(animals, animal, process.argv[4]);
- writeToFile = true;
- break;
+   updatedAnimals = edit(animals, animal, process.argv[4]);
+   writeToFile = true;
+   break;
 ```
 
 ### Score
@@ -474,6 +468,7 @@ function score(animals) {
   return animals.reduce((acc, current) => acc + current.points, 0);
 }
 ```
+
 Export the `score` function and import this function to `index.js`.
 
 In the `index.js` update the `score` case
@@ -481,8 +476,8 @@ In the `index.js` update the `score` case
 ```js
 // index.js
  case "score":
- inform(`Current points sum of all animals you've added to your database:`, score(animals));
- break;
+   inform(`Current points sum of all animals you've added to your database:`, score(animals));
+   break;
 ```
 
 ### Future Improvements
@@ -494,72 +489,82 @@ You have now built a complete CRUD app. No matter how many features you build, a
 ### index.js
 
 ```js
-const { writeJSONFile, readJSONFile } = require('./src/helpers');
+cconst { readJSONFile, writeJSONFile } = require("./src/helpers");
+
 const {
   create,
+  index,
+  show,
   destroy,
   edit,
-  index,
-  show
-} = require('./src/animalController.js');
+  score,
+} = require("./src/animalController");
 
+// create an alias called inform to store the console.log function
+// When providing user feedback in the terminal use `inform`
+// When developing/debugging use `console.log`
 const inform = console.log;
+const animals = readJSONFile("./data", "animals.json");
 
 function run() {
   const action = process.argv[2];
   const animal = process.argv[3];
-  let animals = readJSONFile('data', 'animals.json');
+
   let writeToFile = false;
   let updatedAnimals = [];
+
   switch (action) {
-    case 'index':
+    case "index":
       const animalsView = index(animals);
       inform(animalsView);
       break;
-    case 'create':
+    case "create":
       updatedAnimals = create(animals, animal);
       writeToFile = true;
       break;
-    case 'show':
+    case "show":
       const animalView = show(animals, animal);
       inform(animalView);
       break;
-    case 'update':
+    case "update":
       updatedAnimals = edit(animals, animal, process.argv[4]);
       writeToFile = true;
       break;
-    case 'destroy':
+    case "destroy":
       updatedAnimals = destroy(animals, animal);
       writeToFile = true;
       break;
-    case 'score':
+    case "score":
       inform(
-        `Current points sum of all animals you've added to your database:`,
-        score(animals)
+        `Current points sum of all animals you've added to your database: ${score(
+          animals
+        )}`
       );
       break;
     default:
-      inform('There was an error.');
+      inform("There was an error.");
   }
   if (writeToFile) {
-    writeJSONFile('data', 'animals.json', updatedAnimals);
+    writeJSONFile("./data", "animals.json", updatedAnimals);
   }
 }
+
 run();
+
 ```
 
 ### animalController.js
 
 ```js
 const { nanoid } = require('nanoid');
+
 const animalPoints = require('../data/animalPoints.json');
 
-const inform = console.log;
 function create(animals, animalName) {
   const animal = {
     name: animalName,
     id: nanoid(4),
-    points: animalPoints[animalName]
+    points: animalPoints[animalName] || 10
   };
   animals.push(animal);
   return animals;
@@ -573,6 +578,10 @@ function show(animals, animalId) {
   const animal = animals.find((animal) => animal.id === animalId);
   return animal.id + ' ' + animal.name + ' ' + animal.points + ' points';
 }
+
+// animalController.js
+const inform = console.log;
+
 function destroy(animals, animalId) {
   const index = animals.findIndex((animal) => animal.id === animalId);
   if (index > -1) {
@@ -590,7 +599,7 @@ function edit(animals, animalId, updatedAnimal) {
   if (index > -1) {
     animals[index].id = animalId;
     animals[index].name = updatedAnimal;
-    animals[index].points = animalPoints[updatedAnimal];
+    animals[index].points = animalPoints[updatedAnimal] || 10;
     inform('Animal successfully updated');
     return animals;
   } else {
@@ -603,5 +612,12 @@ function score(animals) {
   return animals.reduce((acc, current) => acc + current.points, 0);
 }
 
-module.exports = { create, destroy, edit, index, show, score };
+module.exports = {
+  create,
+  index,
+  show,
+  destroy,
+  edit,
+  score
+};
 ```
