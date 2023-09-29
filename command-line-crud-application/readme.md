@@ -355,7 +355,7 @@ function index(animals) {
 }
 ```
 
-Be sure to export and then import the function to `index.js`
+Export the `index` function and import this function to `index.js`.
 
 In the `index.js` file, update the `index` case.:
 
@@ -384,6 +384,7 @@ function show(animals, animalId) {
   return animal.id + ' ' + animal.name + ' ' + animal.points + ' points';
 }
 ```
+Export the `show` function and import this function to `index.js`.
 
 ### Destroy
 
@@ -413,7 +414,7 @@ function destroy(animals, animalId) {
 }
 ```
 
-Export the `destroy` funtion
+Export the `destroy` function and import this function to `index.js`.
 
 
 
@@ -452,7 +453,7 @@ function edit(animals, animalId, updatedAnimal) {
 }
 ```
 
-Export and import this function to `index.js`.
+Export the `update` function and import this function to `index.js`.
 
 In `index.js`, Update the `update` case
 
@@ -473,6 +474,7 @@ function score(animals) {
   return animals.reduce((acc, current) => acc + current.points, 0);
 }
 ```
+Export the `score` function and import this function to `index.js`.
 
 In the `index.js` update the `score` case
 
