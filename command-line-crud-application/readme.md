@@ -213,10 +213,9 @@ module.exports = {
 
 Remember that we've added an npm package to generate a unique id called `nanoid`. (check your `package.json` dependencies object)
 
-Require it and use it in the create function.
+In your `animalsController.js` require `nanoid` and use it in your `create` function
 
 ```js
-// animalController.js
 const { nanoid } = require('nanoid');
 
 function create(animals, animalName) {
@@ -299,7 +298,6 @@ const { create } = require('./src/animalController');
 Next add two variables to the top of the `run` function. One variable, `writToFile`, will hold a boolean value that acts as a toggle. The other variable,`updateAnimals`, will hold an array of the updated or created animals
 
 ```js
-// index.js
 function run {
   let writeToFile = false;
   let updatedAnimals = [];
@@ -342,8 +340,6 @@ Typically, an index is a list of things with limited details. When you think of 
 Add the index functionality to the `animalsController.js` file so that we can import it and call it as an action in the `index.js`.
 
 ```js
-// animalsController.js
-
 function index(animals) {
   return animals.map((animal) => animal.id + ' ' + animal.name).join('\n');
 }
@@ -370,8 +366,9 @@ npm run show <animal_id>
 
 `show` function/action will search the array of animals and find the object that has a matching id to the `animalID` parameter. It will then send back a human-readable view:
 
+Add the show function to the `animalController.js`
+
 ```js
-// animalController.js
 function show(animals, animalId) {
   const animal = animals.find((animal) => animal.id === animalId);
   return animal.id + ' ' + animal.name + ' ' + animal.points + ' points';
@@ -390,10 +387,9 @@ Destroying an animal object will also require the animal id.
 npm run destroy <animal_id>
 ```
 
-In the `animalController.js` file, place this `inform` variable which just allows us to use `console.log` as well as the `destroy` function into the file.
+In the `animalController.js` file, declare this `inform` variable. It allows us to use `console.log` Also add the `destroy` function
 
 ```js
-// animalController.js
 const inform = console.log;
 
 function destroy(animals, animalId) {
