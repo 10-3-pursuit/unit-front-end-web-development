@@ -293,7 +293,7 @@ function create(animals, animalName) {
 }
 ```
 
-## save the added animal to the `animals.json` file.
+## Save the created animal to the `animals.json` file.
 
 In your `index.js` file, start by importing the `create` function. 
 
