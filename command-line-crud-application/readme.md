@@ -424,10 +424,10 @@ You'll use the `id` for this action as well. Additionally, you'll need to enter 
 npm run update <animal_id> "red fox"
 ```
 
-In the `animalsController.js` add the edit function
+In the `animalsController.js` add the edit function.
+Although we call this function `edit` it will be used with the `update` command
 
 ```js
-// Animals Controller
 function edit(animals, animalId, updatedAnimal) {
   const index = animals.findIndex((animal) => animal.id === animalId);
   if (index > -1) {
