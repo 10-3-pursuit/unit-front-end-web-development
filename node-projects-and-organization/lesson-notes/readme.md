@@ -25,68 +25,70 @@ The company has sent over some data on some possible jellybeans, but it's a bit 
 <code><pre>
 
 ```js
-[
+const jellybeans = [
   {
-    name: "Wiggly Chilean Corralero",
-    color: "sky blue",
-    flavorType: "bitter",
-    inStock: true,
+    name: 'Wiggly Chilean Corralero',
+    color: 'sky blue',
+    flavorType: 'bitter',
+    inStock: true
   },
   {
-    name: "Impish Argente Brun",
-    color: "gold",
-    flavorType: "spicy",
-    inStock: false,
+    name: 'Impish Argente Brun',
+    color: 'gold',
+    flavorType: 'spicy',
+    inStock: false
   },
   {
-    name: "Venerated Pulikulam",
-    color: "yellow",
-    flavorType: "salty",
-    inStock: true,
+    name: 'Venerated Pulikulam',
+    color: 'yellow',
+    flavorType: 'salty',
+    inStock: true
   },
   {
-    name: "Well-to-do Hognosed viper",
-    color: "blue",
-    flavorType: "salty",
-    inStock: false,
+    name: 'Well-to-do Hognosed viper',
+    color: 'blue',
+    flavorType: 'salty',
+    inStock: false
   },
   {
-    name: "Attractive Australian Freshwater Crocodile",
-    color: "black",
-    flavorType: "fruity",
-    inStock: true,
+    name: 'Attractive Australian Freshwater Crocodile',
+    color: 'black',
+    flavorType: 'fruity',
+    inStock: true
   },
   {
-    name: "Mediocre West African Lion",
-    color: "olive",
-    flavorType: "fruity",
-    inStock: true,
+    name: 'Mediocre West African Lion',
+    color: 'olive',
+    flavorType: 'fruity',
+    inStock: true
   },
   {
-    name: "Ill-informed Bolognese",
-    color: "salmon",
-    flavorType: "salty",
-    inStock: false,
+    name: 'Ill-informed Bolognese',
+    color: 'salmon',
+    flavorType: 'salty',
+    inStock: false
   },
   {
-    name: "Warped Bouvier des Flandres",
-    color: "lime",
-    flavorType: "spicy",
-    inStock: true,
+    name: 'Warped Bouvier des Flandres',
+    color: 'lime',
+    flavorType: 'spicy',
+    inStock: true
   },
   {
-    name: "Serene Allmogekor",
-    color: "tan",
-    flavorType: "bitter",
-    inStock: false,
+    name: 'Serene Allmogekor',
+    color: 'tan',
+    flavorType: 'bitter',
+    inStock: false
   },
   {
-    name: "Brisk Grass Carrying Wasp",
-    color: "fuchsia",
-    flavorType: "savory",
-    inStock: true,
-  },
+    name: 'Brisk Grass Carrying Wasp',
+    color: 'fuchsia',
+    flavorType: 'savory',
+    inStock: true
+  }
 ];
+
+module.exports = jellybeans;
 ```
 
 </pre></code>
@@ -202,7 +204,7 @@ Then, we want to confirm that the jellybean(jb) `flavorType` is equal to `salty`
 
 ```js
 const salty = jellybeansJSON.filter((jb) => {
-  return jb.flavorType === "salty";
+  return jb.flavorType === 'salty';
 });
 
 console.log(salty);
