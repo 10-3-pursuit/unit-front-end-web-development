@@ -25,7 +25,7 @@ The company has sent over some data on some possible jellybeans, but it's a bit 
 <code><pre>
 
 ```js
-const jellybeans = [
+module.exports = [
   {
     name: 'Wiggly Chilean Corralero',
     color: 'sky blue',
@@ -87,8 +87,6 @@ const jellybeans = [
     inStock: true
   }
 ];
-
-module.exports = jellybeans;
 ```
 
 </pre></code>
