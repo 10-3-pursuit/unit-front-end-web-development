@@ -213,13 +213,6 @@ module.exports = { message, anotherMessage };
 
 To import these variables, go to `index.js`. This log will now be the entire object:
 
-```js
-// index.js
-const importedMessage = require('./messages.js');
-
-console.log(importedMessage);
-```
-
 We can now access the original `message` with dot notation.
 
 ```js
