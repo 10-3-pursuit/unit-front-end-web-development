@@ -140,7 +140,7 @@ touch index.js
 Open this file and write a simple console log:
 
 ```js
-console.log("Hello, Node.js!");
+console.log('Hello, Node.js!');
 ```
 
 To run this program, type:
@@ -171,13 +171,13 @@ touch messages.js
 
 ```js
 // messages.js
-const message = "Oh, hai!";
+const message = 'Oh, hai!';
 ```
 
 You will need to export this message to be able to use it in another file. You will use the `module.exports` statement.
 
 ```js
-const message = "Oh, hai!";
+const message = 'Oh, hai!';
 
 module.exports = message;
 ```
@@ -188,7 +188,7 @@ You will use the `require` statement to import this module. When requiring your 
 
 ```js
 // index.js
-const importedMessage = require("./messages.js");
+const importedMessage = require('./messages.js');
 
 console.log(importedMessage);
 ```
@@ -199,15 +199,15 @@ Add another variable to `messages.js`
 
 ```js
 // messages.js
-const message = "Oh, hai!";
-const anotherMessage = "Oh, goodbye!";
+const message = 'Oh, hai!';
+const anotherMessage = 'Oh, goodbye!';
 ```
 
 The `export` statement would have to be set to an object to export both messages.
 
 ```js
-const message = "Oh, hai!";
-const anotherMessage = "Oh, goodbye!";
+const message = 'Oh, hai!';
+const anotherMessage = 'Oh, goodbye!';
 module.exports = { message, anotherMessage };
 ```
 
@@ -215,7 +215,7 @@ To import these variables, go to `index.js`. This log will now be the entire obj
 
 ```js
 // index.js
-const importedMessage = require("./messages.js");
+const importedMessage = require('./messages.js');
 
 console.log(importedMessage);
 ```
@@ -223,7 +223,7 @@ console.log(importedMessage);
 We can now access the original `message` with dot notation.
 
 ```js
-import importedMessage from "./messages";
+const importedMessage = require('./messages)
 
 console.log(importedMessage.message);
 ```
@@ -231,7 +231,7 @@ console.log(importedMessage.message);
 It is also possible to get the other value with destructuring:
 
 ```js
-const { message, anotherMessage } = require("./messages.js");
+const { message, anotherMessage } = require('./messages.js');
 
 console.log(message);
 console.log(anotherMessage);
@@ -240,14 +240,14 @@ console.log(anotherMessage);
 You can also rename the incoming values. This can help shorten variable names or create new variable names that clarify the code.
 
 ```js
-const { message: hello, anotherMessage } = require("./messages.js");
+const { message: hello, anotherMessage } = require('./messages.js');
 
 console.log(hello);
 console.log(anotherMessage);
 ```
 
 ```js
-const { message: hello, anotherMessage: goodbye } = require("./messages.js");
+const { message: hello, anotherMessage: goodbye } = require('./messages.js');
 
 console.log(hello);
 console.log(goodbye);
@@ -274,10 +274,10 @@ Import and call the function:
 const {
   message: hello,
   anotherMessage: goodbye,
-  customMessage,
-} = require("./messages.js");
+  customMessage
+} = require('./messages.js');
 
-console.log(customMessage("Nice to see you,", "Ava"));
+console.log(customMessage('Nice to see you,', 'Ava'));
 ```
 
 ### Access Command-line Arguments
@@ -369,7 +369,7 @@ Import the JSON and log the value to confirm it has been imported:
 
 ```js
 // index.js
-const donuts = require("./donuts.json");
+const donuts = require('./donuts.json');
 console.log(donuts);
 ```
 
@@ -380,8 +380,8 @@ Below is the complete code from this reading.
 The `messages.js` file:
 
 ```js
-const message = "Oh, hai!";
-const anotherMessage = "Oh, goodbye!";
+const message = 'Oh, hai!';
+const anotherMessage = 'Oh, goodbye!';
 
 const customMessage = (message, name) => {
   return `${message} ${name}`;
@@ -396,17 +396,17 @@ The `index.js` file:
 const {
   message: hello,
   anotherMessage: goodbye,
-  customMessage,
-} = require("./messages.js");
+  customMessage
+} = require('./messages.js');
 
 console.log(hello);
 console.log(goodbye);
-console.log(customMessage("Nice to see you,", "Ava"));
+console.log(customMessage('Nice to see you,', 'Ava'));
 
 // console.log(process.argv);
 
 console.log(customMessage(process.argv[2], process.argv[3]));
 
-const donuts = require("./donuts.json");
+const donuts = require('./donuts.json');
 console.log(donuts);
 ```
