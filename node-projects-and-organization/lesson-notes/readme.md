@@ -190,7 +190,7 @@ There are 6 `flavorTypes`:
 - savory
 - bitter
 
-Create a variable called `salty` that will be an array of all the salty jellybeans from the `jellybeans` array.
+### Create a variable called `salty` that will be an array of all the salty jellybeans from the `jellybeans` array.
 
 To do this, we can approach this by realizing that we want to `filter` out all the jellybeans that are not salty. Therefore we can use the `filter` method:
 
