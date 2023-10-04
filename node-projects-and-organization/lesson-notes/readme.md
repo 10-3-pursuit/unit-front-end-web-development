@@ -20,7 +20,7 @@ The company has sent over some data on some possible jellybeans, but it's a bit 
 - `touch index.js jellybeans.js jellybeans.json`.
 - `npm init -y`, the flag `-y` will automatically set all default input for `package.json`.
 
-<details><summary>Copy and paste only the array into <code>jellybeans.js</code>:</summary>
+<details><summary>Copy and paste the array into <code>jellybeans.js</code>:</summary>
 
 <code><pre>
 
@@ -95,7 +95,7 @@ module.exports = jellybeans;
 
 </details>
 
-<details><summary>Copy and paste only the array into <code>jellybeans.json</code>:</summary>
+<details><summary>Copy and paste the array into <code>jellybeans.json</code>:</summary>
 
 <code><pre>
 
