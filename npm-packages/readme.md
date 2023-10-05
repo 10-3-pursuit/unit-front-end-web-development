@@ -86,7 +86,7 @@ You will need to export this function to use it in another file. To do this, you
 ```js
 // message.js
 const whatTimeIsIt = () => {
-  return `The date is {new Date()}`;
+  return `The date is ${new Date()}`;
 };
 module.exports = whatTimeIsIt;
 ```
