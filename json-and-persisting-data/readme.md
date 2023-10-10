@@ -198,7 +198,7 @@ function run() {
   let products = readJSONFile("./data", "products.json");
   console.log(products);
   if (process.argv[3]) {
-    console.log(randomProductFactory(process.argv[3]));
+    writeJSONFile('./data', 'products.json', randomProductFactory(process.argv[3]))
   } else {
     products = createRandomProduct();
     writeJSONFile("./data", "products.json", products);
