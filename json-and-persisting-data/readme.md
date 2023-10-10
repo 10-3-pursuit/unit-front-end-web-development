@@ -81,6 +81,11 @@ function randomProductFactory(number) {
 }
 
 console.log(randomProductFactory(5));
+
+module.exports = {
+    randomProductFactory,
+    createRandomProduct
+}
 ```
 
 Create a `run()` function in `index.js` and accompanying `package.json` scripts that will allow a user to create one product and another that will allow user input to create a certain number of products.
@@ -168,7 +173,7 @@ There are two methods that JavaScript has to assist with the conversions. `JSON.
 
 ```js
 function writeJSONFile(path, fileName, data) {
-  const data = JSON.stringify(data);
+  data = JSON.stringify(data);
   return writeFileSync(`${path}/${fileName}`, data, { encoding: "utf-8" });
 }
 ```
