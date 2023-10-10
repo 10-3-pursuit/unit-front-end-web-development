@@ -173,7 +173,8 @@ There are two methods that JavaScript has to assist with the conversions. `JSON.
 
 ```js
 function writeJSONFile(path, fileName, data) {
-  data = JSON.stringify(data);
+  // The second and third arguments (null & 2) are for formatting the data in the JSON file
+  data = JSON.stringify(data, null, 2);
   return writeFileSync(`${path}/${fileName}`, data, { encoding: "utf-8" });
 }
 ```
@@ -334,7 +335,7 @@ function readJSONFile(path, fileName) {
 }
 
 function writeJSONFile(path, fileName, data) {
-  data = JSON.stringify(data);
+  data = JSON.stringify(data, null, 2);
   return writeFileSync(`${path}/${fileName}`, data, { encoding: "utf-8" });
 }
 
