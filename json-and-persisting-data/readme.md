@@ -168,7 +168,7 @@ There are two methods that JavaScript has to assist with the conversions. `JSON.
 
 ```js
 function writeJSONFile(path, fileName, data) {
-  data = JSON.stringify(data);
+  const data = JSON.stringify(data);
   return writeFileSync(`${path}/${fileName}`, data, { encoding: "utf-8" });
 }
 ```
