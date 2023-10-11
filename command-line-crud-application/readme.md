@@ -377,6 +377,17 @@ function show(animals, animalId) {
 
 Export the `show` function and import this function to `index.js`.
 
+
+Now in your `show` case change the code to look like the code below:
+
+```js
+case "show":
+      const animalView = show(animals, animal);
+      inform(animalView);
+      break;
+```
+You are running the `show` and setting it to a variable, `animalView`, that you will be able to log to the console.
+
 ### Destroy
 
 Destroying an animal object will also require the animal id.
