@@ -164,7 +164,6 @@ div {
   border: 2px solid teal;
   padding: 12px 3px 6px 9px;
   box-sizing: border-box;
-  margin: 4px auto;
 }
 ```
 
