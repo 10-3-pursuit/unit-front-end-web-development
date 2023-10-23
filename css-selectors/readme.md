@@ -118,7 +118,7 @@ Using the following HTML block, let's look at some examples.
 </body>
 ```
 
-If the rule has the same specificity, the last rule is applied. In the following code block, the salmon color will be applied. All `p` elements will have the color orchid.
+If the rule has the same specificity, the last rule is applied. In the following code block, the salmon color will be applied. All `p` elements will have the color salmon.
 
 ```css
 p {
