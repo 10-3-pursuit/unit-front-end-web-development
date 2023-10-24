@@ -55,7 +55,7 @@ For example, take a look at the following empty `div`. A `div` has a default `di
 <div></div>
 ```
 
-In your browser `dev` tools (open with <kbd>command</kbd> <kbd>shift</kbd> <kbd>i</kbd>), you can see the box model of any element by hovering over it.
+In your browser `dev` tools (open with <kbd>command</kbd> <kbd>option</kbd> <kbd>i</kbd>), you can see the box model of any element by hovering over it.
 
 ![Image of the box model for an empty div element.](./assets/empty-div.png)
 
