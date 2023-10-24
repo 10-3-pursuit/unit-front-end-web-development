@@ -71,6 +71,6 @@ p span {
 
 - How could you constrain the width of the articles to be precisely `500px`, regardless of margin or padding properties?
 
-- By default, does the anchor tag (i.e., `a`) have a `display` value of `inline`, `inline-block`, or `block`? Describe how an anchor ta would look if the `display` value was set to any previously mentioned values.
+- By default, does the anchor tag (i.e., `a`) have a `display` value of `inline`, `inline-block`, or `block`? Describe how an anchor tag would look if the `display` value was set to any previously mentioned values.
 
 - If you wanted to make the anchor tag appear as a big button, could you style it with CSS, or would you need to use a `button` tag?
