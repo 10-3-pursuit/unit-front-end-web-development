@@ -76,11 +76,11 @@ Begin by forking the following GitHub repository.
 ```js
 const dogs = [
   {
-    name: "Amber",
+    dogName: "Amber",
     description: "A sweet little doggo that belongs to my friend.",
-    imageNum: 450,
-    featured: false,
-  },
+    imageUrl: "https://placedog.net/500/450",
+    alt: "Amber"
+  }
 ];
 ```
 
