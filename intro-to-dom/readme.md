@@ -38,7 +38,7 @@ Look at the following HTML:
         src="https://londontheinside.com/wp-content/uploads/2017/11/StrangerThings2.png"
         alt="Welcome to Hawkins"
       />
-      <h2>Featuring</h2>
+      <h3>Featuring</h3>
       <ul>
         <li>Hawkins National Laboratory</li>
         <li>Hawkins Police Station</li>
@@ -343,7 +343,7 @@ You will only need a small handful of these commands for now. Some method names 
 #### Search/Query/Read
 
 - `document.querySelector()`
-  - `node.querySelector()` 
+  - `node.querySelector()`
 - `document.querySelectorAll()`
   - `node.querySelectorAll()`
 - `document.getElementById()`
