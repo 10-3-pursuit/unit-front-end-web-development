@@ -42,7 +42,7 @@ The following reading will help you complete the app so that it looks and functi
       </label>
       <label>
         Author
-        <input id="author" name="title" type="text" />
+        <input id="author" name="author" type="text" />
       </label>
       <label>
         Genre
@@ -158,14 +158,14 @@ Form fields. Instead, to access the value of a form field, you should use the `.
 <!-- index.html -->
 <label>
   Book Title
-  <input id="title" name="title" type="text" />
+  <input id="book" name="book" type="text" />
 </label>
 ```
 
 ```js
 // script.js
-const title = document.querySelector("input[type='text']");
-console.log(title.value);
+const book = document.querySelector("input[type='text']");
+console.log(book.value);
 ```
 
 For dropdowns (i.e., `select` elements), `.value` will work as well, as long as your `option` elements include `value` attributes.
@@ -233,7 +233,7 @@ Some behaviors are undesirable when working with JavaScript on the front-end. Th
 <form id="new-book">
   <label>
     Book Title
-    <input id="title" name="title" type="text" />
+    <input id="book" name="book" type="text" />
   </label>
   <label>
     Book Author
@@ -249,8 +249,8 @@ const form = document.querySelector("form");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const title = document.querySelector("#title");
-  console.log(title.value);
+  const book = document.querySelector("#book");
+  console.log(book.value);
 
   const author = document.querySelector("#author");
   console.log(author.value);
@@ -262,7 +262,7 @@ In the JavaScript code above, the following is happening:
 1. The form element is selected and assigned to a variable.
 1. An event listener is added to the element. The callback function will run when the "submit" event is triggered.
 1. Inside the callback function, `event.preventDefault()` is called. This stops the form from refreshing the page. If you use `event.preventDefault()`, you should always put it first in the event listener.
-1. The values from the `#title` and `#author` inputs are logged out.
+1. The values from the `#book` and `#author` inputs are logged out.
 
 The `event.preventDefault()` method is commonly used with forms. However, it can be used with other elements like links and form fields.
 
@@ -277,7 +277,7 @@ When submitting a form, accessing all form fields from the `event` object is pos
 <form id="new-book">
   <label>
     Book Title
-    <input id="title" name="title" type="text" />
+    <input id="book" name="book" type="text" />
   </label>
   <label>
     Book Author
@@ -293,7 +293,7 @@ const form = document.querySelector("form");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  console.log(event.target.title.value); // Value of Book Title
+  console.log(event.target.book.value); // Value of Book Title
   console.log(event.target.author.value); // Value of Book Author
 });
 ```
@@ -329,15 +329,15 @@ const form = document.querySelector("form");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const title = document.querySelector("#title").value;
-  console.log(title.value);
+  const book = document.querySelector("#book").value;
+  console.log(book.value);
 
   const author = document.querySelector("#author").value;
 
   const ul = document.querySelector("ul");
   const li = document.createElement("li");
 
-  li.innerText = `${title} by ${author}`;
+  li.innerText = `${book} by ${author}`;
 
   ul.append(li);
 });
@@ -348,9 +348,9 @@ The first thing to note is that the `li` element is more than just text. You can
 First, create the top element and then add the innerHTML with the specific values.
 
 ```js
-function bookTemplate(author, title, genre) {
+function bookTemplate(author, book, genre) {
   const template = document.createElement("li");
-  template.innerHTML = `<span> ${genre}</span>${title} by ${author}
+  template.innerHTML = `<span> ${genre}</span>${book} by ${author}
  <button>Finished</button>
 `;
 }
@@ -359,9 +359,9 @@ function bookTemplate(author, title, genre) {
 Add the event listeners/handlers for updating and removing a book.
 
 ```js
-function bookTemplate(author, title, genre) {
+function bookTemplate(author, book, genre) {
   const template = document.createElement("li");
-  template.innerHTML = `<span> ${genre}</span>${title} by ${author}
+  template.innerHTML = `<span> ${genre}</span>${book} by ${author}
  <button>Finished</button>
 `;
   const bookButton = template.querySelector("button");
@@ -374,7 +374,7 @@ function bookTemplate(author, title, genre) {
 Call this function in the form submit.
 
 ```js
-const liTemplate = bookTemplate(author, title, genre.value);
+const liTemplate = bookTemplate(author, book, genre.value);
 ```
 
 Append the element to the unordered list.
@@ -396,8 +396,8 @@ On your own:
 const p = document.querySelector("p");
 // console.log(p.textContent);
 
-const title = document.querySelector("input[type='text']");
-// console.log(title.value);
+const book = document.querySelector("input[type='text']");
+// console.log(book.value);
 
 const genre = document.querySelector("select");
 // console.log(genre.value);
@@ -412,7 +412,7 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   // Gets values from form
-  const title = document.querySelector("#title").value;
+  const book = document.querySelector("#book").value;
 
   const author = document.querySelector("#author").value;
 
@@ -423,11 +423,11 @@ form.addEventListener("submit", (event) => {
 
   // appends text only li
   // const li = document.createElement("li");
-  // li.innerText = `${title} by ${author}`;
+  // li.innerText = `${book} by ${author}`;
   // ul.append(li);
 
   // Creates template li with innerHTML and event listeners/handlers
-  const liTemplate = bookTemplate(author, title, genre.value);
+  const liTemplate = bookTemplate(author, book, genre.value);
 
   // Appends li Template
   ul.append(liTemplate);
@@ -443,9 +443,9 @@ function removeBook(element) {
 }
 
 // create template for HTML elements inside li
-function bookTemplate(author, title, genre) {
+function bookTemplate(author, book, genre) {
   const template = document.createElement("li");
-  template.innerHTML = `<span> ${genre}</span>${title} by ${author}
+  template.innerHTML = `<span> ${genre}</span>${book} by ${author}
  <button>Finished</button>
 `;
   const bookButton = template.querySelector("button");
