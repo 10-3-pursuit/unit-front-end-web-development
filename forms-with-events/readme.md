@@ -38,7 +38,7 @@ The following reading will help you complete the app so that it looks and functi
     <form>
       <label>
         Book Title
-        <input id="title" name="title" type="text" />
+        <input id="book" name="book" type="text" />
       </label>
       <label>
         Author
