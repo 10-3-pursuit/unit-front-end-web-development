@@ -170,7 +170,7 @@ Success! Victory! This list shows tasks that are completed by your team. It's a 
 
 Not every task you'll have to work on is a user story. You can (and should) include two other common tasks in your Trello board. You can also use `labels` to denote that they are not user stories:
 
-![Trello Labels](./assets/Trello-labels.png)
+![Trello Labels](./assets/trello-labels.png)
 
 ### User Stories Details
 
