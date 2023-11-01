@@ -96,7 +96,7 @@ For now, you will work with five lists:
 
 Here is an example Trello Board:
 
-![Trello Board](./assets/Trello-board.png)
+![Trello Board](./assets/trello-board.png)
 
 [Getting Started with Trello Docs](https://trello.com/guide)
 
