@@ -125,7 +125,7 @@ Dark patterns are deceptive designs in a user interface that trick users into do
 
 Awareness of dark patterns can help you make informed decisions when you navigate websites.
 
-[Darkpatterns.org](darkpatterns.org)
+[Darkpatterns.org](https://www.deceptive.design)
 
 ## Converting a bad app into a good one
 
