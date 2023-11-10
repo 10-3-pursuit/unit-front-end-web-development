@@ -36,7 +36,7 @@ While you can create a promise, many code libraries have promise objects for you
 
 The browser has a function called `fetch()`. Fetch is also known as an API, though in this case, it is referring to the functionality provided by [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) rather than a service that returns data. It is important to note that Node.js does not have `fetch`, and you will get an error if you try to run this code in Node.js.
 
-`Clone` this [repo]() so that you can code along.
+`Clone` this [repo](https://github.com/10-3-pursuit/api-promises-and-fetch-starter-code) so that you can code along.
 
 Much like the `fs` module that retrieved data from a file, `.fetch()`retrieves data from places on the Internet.
 
